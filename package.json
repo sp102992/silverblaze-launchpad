@@ -1,0 +1,26 @@
+{
+  "name": "silverblaze-portal-server",
+  "version": "1.0.0",
+  "description": "SilverBlaze Implementation Kickoff Portal - bare-bones server (one shared Smartsheet API token, no OAuth, no database)",
+  "main": "server/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "cross-env SMARTSHEET_MOCK=true node server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "dotenv": "^16.4.5",
+    "node-fetch": "^2.7.0",
+    "jsonwebtoken": "^9.0.2",
+    "cookie-parser": "^1.4.6",
+    "nodemailer": "^6.9.14"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

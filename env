@@ -1,0 +1,63 @@
+# ── Server ──────────────────────────────────────────────
+PORT=3000
+APP_BASE_URL=http://localhost:3000
+SESSION_SECRET=change-me-to-a-long-random-string
+LINK_SECRET=change-me-to-a-different-long-random-string
+
+# ── Manager logins are hardcoded in server/users.js, not here ──
+# Edit that file directly to add/remove teammates and set real passwords.
+
+# ── Smartsheet — one personal API token, no OAuth app needed ──
+# Generate at: Smartsheet -> your avatar -> Personal Settings -> API Access
+# -> Generate new access token. Paste it below.
+SMARTSHEET_API_TOKEN=
+
+# ── Dev/testing ──
+# When true, no real Smartsheet calls are made — everything is served from
+# an in-memory mock store so you can click through the whole app before you
+# have a real API token.
+SMARTSHEET_MOCK=true
+
+# ── Feature flags ──────────────────────────────────────────
+# Hide/show entire sections without any code changes. The underlying data
+# and routes keep working either way — this only controls what shows up in
+# the sidebar/UI. Defaults to false (hidden) for all three; set to true to
+# bring a section back.
+SHOW_PROJECT_MANAGEMENT=false
+SHOW_CONFIG_EXPORT=false
+SHOW_OVERVIEW_SECTION=false
+
+# ── Notifications (optional) ────────────────────────────────
+# A Slack or Microsoft Teams "Incoming Webhook" URL. When set, the portal
+# automatically posts there when a share-link section gets submitted and
+# when a Team Update is flagged as a Blocker — see server/notifications.js.
+# Leave blank and everything still works, it just logs to the console
+# instead of delivering anywhere.
+NOTIFY_WEBHOOK_URL=
+
+# Once-a-day portfolio health digest (completion %, blockers, Green/Yellow/
+# Red) sent to the webhook above — see server/digest.js. Off by default;
+# submission/blocker notifications above work regardless of this setting.
+DIGEST_ENABLED=false
+DIGEST_HOUR=8
+
+# ── Email / SMTP (optional) ─────────────────────────────────
+# Lets the manager dashboard's "Email link" button actually deliver a
+# share-link to a vendor/client's inbox — see server/email.js. Leave
+# SMTP_HOST blank and the button still works, it just tells you SMTP isn't
+# configured and gives you the link to copy/paste manually instead.
+SMTP_HOST=
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=
+SMTP_PASS=
+SMTP_FROM=no-reply@example.com
+SMTP_FROM_NAME=Client Onboarding Portal
+
+# ── Reminder nudges (optional) ───────────────────────────────
+# Automatically re-sends the "Email link" message for any section that was
+# emailed but never submitted — see server/reminders.js. Requires SMTP above
+# to actually be configured to deliver anything; off by default.
+REMINDERS_ENABLED=false
+REMINDER_INTERVAL_DAYS=3
+REMINDER_HOUR=9
